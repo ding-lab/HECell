@@ -1,0 +1,31 @@
+# Baseline configuration.
+
+# Target cell types. The index order here is the label order used everywhere.
+classes: [Hepatocyte, Lymphocyte, Necrosis, Stromal, Tumor]
+
+data:
+  microns_per_px: 0.2125     # aligned H&E scale (microns per pixel)
+
+cv:
+  n_folds: 5
+  seed: 42
+
+# Optional LoRA fine-tuning of the backbone (train_lora.py). target_modules are
+# the attention layer names for the chosen timm backbone.
+lora:
+  r: 8
+  alpha: 16
+  dropout: 0.1
+  target_modules: [qkv, proj]
+  lr: 0.0001
+  epochs: 3
+  batch_size: 128
+
+train:
+  epochs: 30
+  batch_size: 4096
+  lr: 0.002
+  weight_decay: 0.0001
+  hidden: 512
+  dropout: 0.3
+  label_smoothing: 0.05

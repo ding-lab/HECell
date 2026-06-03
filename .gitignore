@@ -1,0 +1,16 @@
+# data and derived artifacts (provide your own; not part of the repo)
+data/
+outputs/
+*.pt
+*.parquet
+groups.csv
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# os / editor
+.DS_Store
+.ipynb_checkpoints/
